@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.local
+*.log
+.DS_Store
+README_general.md
+1-RentNest.md
+rentnest-backend-implementation-plan.md
+.agents
