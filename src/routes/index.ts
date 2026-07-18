@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import adminRouter from '../modules/admin/admin.routes';
 import authRouter from '../modules/auth/auth.routes';
 import categoriesRouter from '../modules/categories/categories.routes';
 import paymentsRouter from '../modules/payments/payments.routes';
@@ -23,8 +24,6 @@ router.use('/payments', paymentsRouter);
 router.use('/reviews', reviewsRouter);
 router.use('/landlord', landlordRouter);
 router.use('/landlord', landlordRentalRouter);
-
-// Remaining feature routers mount here as they're built, e.g.:
-// router.use('/admin', adminRouter);
+router.use('/admin', adminRouter);
 
 export default router;
