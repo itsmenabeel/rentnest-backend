@@ -6,7 +6,7 @@ export function errorHandler(
   err: unknown,
   _req: Request,
   res: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   _next: NextFunction
 ) {
   // Known application errors
@@ -41,7 +41,7 @@ export function errorHandler(
   }
 
   // Fallback — unknown error
-  // eslint-disable-next-line no-console
+
   console.error(err);
   const message = err instanceof Error ? err.message : 'Internal server error';
   return res.status(500).json({

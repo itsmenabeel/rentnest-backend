@@ -95,21 +95,16 @@ export const updatePropertySchema = z.object({
   params: z.object({
     id: z.string().uuid('Invalid property id'),
   }),
-  body: z
-    .object({
-      title: z.string().trim().min(3, 'Title must be at least 3 characters').optional(),
-      description: z
-        .string()
-        .trim()
-        .min(10, 'Description must be at least 10 characters')
-        .optional(),
-      location: z.string().trim().min(2, 'Location is required').optional(),
-      price: priceSchema.optional(),
-      categoryId: z.string().uuid('Invalid category id').optional(),
-      amenities: optionalStringArraySchema,
-      images: optionalStringArraySchema,
-      isAvailable: booleanFromInput.optional(),
-    }),
+  body: z.object({
+    title: z.string().trim().min(3, 'Title must be at least 3 characters').optional(),
+    description: z.string().trim().min(10, 'Description must be at least 10 characters').optional(),
+    location: z.string().trim().min(2, 'Location is required').optional(),
+    price: priceSchema.optional(),
+    categoryId: z.string().uuid('Invalid category id').optional(),
+    amenities: optionalStringArraySchema,
+    images: optionalStringArraySchema,
+    isAvailable: booleanFromInput.optional(),
+  }),
 });
 
 export type GetPropertiesQuery = z.infer<typeof getPropertiesSchema>['query'];

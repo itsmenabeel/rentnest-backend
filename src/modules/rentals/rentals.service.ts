@@ -1,11 +1,7 @@
 import { Prisma, RentalRequestStatus, Role } from '@prisma/client';
 import { prisma } from '../../lib/prisma';
 import { ApiError } from '../../utils/ApiError';
-import {
-  CreateRentalBody,
-  GetRentalsQuery,
-  UpdateRentalStatusBody,
-} from './rentals.validation';
+import { CreateRentalBody, GetRentalsQuery, UpdateRentalStatusBody } from './rentals.validation';
 
 const userSelect = {
   id: true,

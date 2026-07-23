@@ -9,12 +9,7 @@ async function hash(password: string) {
   return bcrypt.hash(password, 10);
 }
 
-async function upsertUser(params: {
-  name: string;
-  email: string;
-  role: Role;
-  phone?: string;
-}) {
+async function upsertUser(params: { name: string; email: string; role: Role; phone?: string }) {
   return prisma.user.upsert({
     where: { email: params.email },
     update: {},
@@ -198,7 +193,8 @@ async function main() {
 
   const studioDhanmondi = await upsertPropertyIfMissing({
     title: 'Cozy Studio near Dhanmondi Lake',
-    description: 'A compact studio unit perfect for a single professional, walking distance to Dhanmondi Lake.',
+    description:
+      'A compact studio unit perfect for a single professional, walking distance to Dhanmondi Lake.',
     location: 'Dhanmondi, Dhaka',
     price: 15000,
     amenities: ['WiFi', 'Furnished'],
@@ -302,7 +298,9 @@ async function main() {
     message: 'Tenant changed their mind before approval.',
   });
 
-  console.log('✅ Seeded rental requests covering PENDING, APPROVED, REJECTED, ACTIVE, COMPLETED, CANCELLED');
+  console.log(
+    '✅ Seeded rental requests covering PENDING, APPROVED, REJECTED, ACTIVE, COMPLETED, CANCELLED'
+  );
   console.log('✅ Seeded matching payments (2) and one review');
   console.log('\nSeed complete.');
 }
