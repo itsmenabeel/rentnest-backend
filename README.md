@@ -234,4 +234,4 @@ external database). On first deploy, `API_BASE_URL` must be updated to the assig
 `.onrender.com` URL and the service redeployed — SSLCommerz's success/fail/cancel/IPN
 callback URLs are built from it, and left as `localhost` those callbacks silently fail.
 
-Live API: _not deployed yet_
+Live API: [Click Here](https://rentnest-backend-bpd7.onrender.com/api/docs/)
