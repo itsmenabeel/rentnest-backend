@@ -1,0 +1,53 @@
+# Render Blueprint — deploys the RentNest backend as a single web service.
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Database is Neon (external), so there's no Render-managed Postgres here —
+# DATABASE_URL / DIRECT_URL are just prompted-for secrets (sync: false),
+# same values you already have in your local .env from the Neon dashboard.
+#
+# Usage: commit this file, then in the Render dashboard choose
+# "New +" -> "Blueprint" and point it at this repo. Render will prompt for
+# every `sync: false` value once, at creation time.
+
+services:
+  - type: web
+    name: rentnest-backend
+    runtime: node
+    plan: free
+    region: singapore # closest Render region to Dhaka (Oregon/Ohio/Virginia/Frankfurt are the alternatives)
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci && npx prisma generate && npm run build
+    startCommand: npx prisma migrate deploy && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "5000"
+      # Must be the real deployed URL once you know it (e.g. https://rentnest-backend.onrender.com) —
+      # SSLCommerz success/fail/cancel/IPN callback URLs are built from this. Update it after first deploy.
+      - key: API_BASE_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        value: "*"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: SSLCOMMERZ_STORE_ID
+        sync: false
+      - key: SSLCOMMERZ_STORE_PASSWORD
+        sync: false
+      - key: SSLCOMMERZ_IS_LIVE
+        value: "false"
