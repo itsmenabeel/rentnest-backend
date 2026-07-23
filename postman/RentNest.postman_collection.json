@@ -80,7 +80,7 @@
           "request": {
             "name": "Register a new tenant or landlord",
             "description": {
-              "content": "ADMIN is not a selectable role here \u2014 admin accounts are seed-only.",
+              "content": "ADMIN is not a selectable role here — admin accounts are seed-only.",
               "type": "text/plain"
             },
             "url": {
@@ -429,7 +429,7 @@
             },
             {
               "id": "a8533c03-999e-47d4-ad89-77a2493987e7",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1065,10 +1065,6 @@
             },
             "header": [
               {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
                 "key": "Accept",
                 "value": "application/json"
               }
@@ -1112,9 +1108,9 @@
                 },
                 {
                   "key": "categoryId",
-                  "value": "0797d06d-ea5e-5e58-ab63-049dc5dda2d6",
+                  "value": "a6ab5a80-fad8-4ec9-ae6a-8ad68fc538d9",
                   "type": "text",
-                  "description": "(Required) "
+                  "description": "(Required) Must be a real category id — see GET /api/categories"
                 },
                 {
                   "key": "amenities",
@@ -1500,7 +1496,7 @@
             },
             {
               "id": "dba47fd5-a435-4c7a-a41d-79dbc98427ee",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -1652,10 +1648,6 @@
             },
             "header": [
               {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
                 "key": "Accept",
                 "value": "application/json"
               }
@@ -1672,7 +1664,57 @@
             },
             "body": {
               "mode": "formdata",
-              "formdata": []
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Updated Property Title",
+                  "type": "text",
+                  "description": "Optional"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description, at least 10 characters.",
+                  "type": "text",
+                  "description": "Optional"
+                },
+                {
+                  "key": "location",
+                  "value": "Dhaka",
+                  "type": "text",
+                  "description": "Optional"
+                },
+                {
+                  "key": "price",
+                  "value": "18000",
+                  "type": "text",
+                  "description": "Optional"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "a6ab5a80-fad8-4ec9-ae6a-8ad68fc538d9",
+                  "type": "text",
+                  "description": "Optional — omit to leave the category unchanged. If set, must be a real category id from GET /api/categories",
+                  "disabled": true
+                },
+                {
+                  "key": "amenities",
+                  "value": "wifi,parking",
+                  "type": "text",
+                  "description": "Optional. Comma-separated or JSON array string"
+                },
+                {
+                  "key": "images",
+                  "value": "[]",
+                  "type": "text",
+                  "description": "Optional. JSON array of existing image URLs to keep, or comma-separated. Actual new file uploads also use field name \"images\" (up to 8 files)."
+                },
+                {
+                  "key": "isAvailable",
+                  "value": "true",
+                  "type": "text",
+                  "description": "Optional"
+                }
+              ]
             }
           },
           "response": [
@@ -1846,7 +1888,7 @@
             },
             {
               "id": "f3defa05-e022-4a94-84c2-0ca8abf2ec6e",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2163,7 +2205,7 @@
             },
             {
               "id": "c83ef4f5-df55-429b-8363-e2fba059c152",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2486,7 +2528,7 @@
             },
             {
               "id": "3ab7f095-c8ac-4ddb-a0b8-c95f49ac4f3e",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -2960,7 +3002,7 @@
             },
             {
               "id": "e581a6f9-90ee-4ce3-97e3-7f805c9d63fe",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3246,7 +3288,7 @@
             },
             {
               "id": "9c371591-0e75-43ea-bf36-cde7e76a0dd6",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3549,7 +3591,7 @@
             },
             {
               "id": "8b233b38-2572-4158-b51e-58ef51c934d2",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3736,7 +3778,7 @@
           "response": [
             {
               "id": "2451f4e7-c188-497a-8b0a-b7c332ecea95",
-              "name": "Payment session created \u2014 returns SSLCommerz GatewayPageURL",
+              "name": "Payment session created — returns SSLCommerz GatewayPageURL",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -3892,7 +3934,7 @@
             },
             {
               "id": "bb9305ac-de65-4708-96c0-95197441ec4d",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -4006,7 +4048,7 @@
           "request": {
             "name": "SSLCommerz success/fail/cancel redirect handler",
             "description": {
-              "content": "Public \u2014 called by SSLCommerz, not by the frontend directly.",
+              "content": "Public — called by SSLCommerz, not by the frontend directly.",
               "type": "text/plain"
             },
             "url": {
@@ -4170,7 +4212,7 @@
           "request": {
             "name": "SSLCommerz Instant Payment Notification webhook",
             "description": {
-              "content": "Public \u2014 server-to-server callback from SSLCommerz.",
+              "content": "Public — server-to-server callback from SSLCommerz.",
               "type": "text/plain"
             },
             "url": {
@@ -4474,7 +4516,7 @@
             },
             {
               "id": "a40c64b1-9b8f-4c15-8e56-a4107ec4714f",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -4670,7 +4712,7 @@
             },
             {
               "id": "1cad4154-50dc-4bfe-8cd3-a181b0c54aa0",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -4991,7 +5033,7 @@
             },
             {
               "id": "b51aa856-0f45-411b-b747-884e4da99bf9",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -5500,7 +5542,7 @@
             },
             {
               "id": "8e90c5d2-32ab-4f12-94c5-bc879784ed3e",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -5807,7 +5849,7 @@
             },
             {
               "id": "19a8d992-e05a-49f1-a356-67290aaa5369",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -6113,7 +6155,7 @@
             },
             {
               "id": "6f97b60b-ca86-4278-939d-8f7945847f1f",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -6345,7 +6387,7 @@
             },
             {
               "id": "7d9726c6-602f-4767-bc00-29e8993dbbf3",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -6612,7 +6654,7 @@
             },
             {
               "id": "97dae73c-0de8-4854-91e5-fde735765c8b",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -6962,7 +7004,7 @@
             },
             {
               "id": "9de17f52-8675-4b85-bef0-e39028b08b3f",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -7289,7 +7331,7 @@
             },
             {
               "id": "7131a26d-0154-43d0-9efc-fcdb46719e9f",
-              "name": "Forbidden \u2014 insufficient role or ownership",
+              "name": "Forbidden — insufficient role or ownership",
               "originalRequest": {
                 "url": {
                   "path": [
@@ -7414,7 +7456,7 @@
       "key": "bearerToken",
       "value": "",
       "type": "string",
-      "description": "Set this after calling POST {{baseUrl}}/auth/login \u2014 copy the token from the response"
+      "description": "Set this after calling POST {{baseUrl}}/auth/login — copy the token from the response"
     }
   ],
   "info": {
