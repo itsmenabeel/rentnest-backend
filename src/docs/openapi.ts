@@ -166,6 +166,7 @@ export const openApiSpec = {
     schemas: { User, Category, Property, RentalRequest, Payment, Review, ApiErrorResponse, PaginationMeta },
   },
   tags: [
+    { name: 'Health' },
     { name: 'Auth' },
     { name: 'Categories' },
     { name: 'Properties' },
@@ -179,7 +180,7 @@ export const openApiSpec = {
   paths: {
     '/health': {
       get: {
-        tags: ['Auth'],
+        tags: ['Health'],
         summary: 'Health check',
         responses: { 200: { description: 'API is running' } },
       },

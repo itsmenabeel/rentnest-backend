@@ -14,7 +14,7 @@ services:
     name: rentnest-backend
     runtime: node
     plan: free
-    region: singapore # closest Render region to Dhaka (Oregon/Ohio/Virginia/Frankfurt are the alternatives)
+    region: singapore
     branch: main
     autoDeploy: true
     buildCommand: npm ci && npx prisma generate && npm run build
@@ -25,8 +25,8 @@ services:
         value: production
       - key: PORT
         value: "5000"
-      # Must be the real deployed URL once you know it (e.g. https://rentnest-backend.onrender.com) —
-      # SSLCommerz success/fail/cancel/IPN callback URLs are built from this. Update it after first deploy.
+      # Must be the real deployed URL (e.g. https://rentnest-backend.onrender.com)
+      # SSLCommerz success/fail/cancel/IPN callback URLs are built from this, update after 1st deploy
       - key: API_BASE_URL
         sync: false
       - key: DATABASE_URL
