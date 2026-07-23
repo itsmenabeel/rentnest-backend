@@ -142,6 +142,7 @@ const errorResponses = {
   403: { description: 'Forbidden — insufficient role or ownership', content: { 'application/json': { schema: ApiErrorResponse } } },
   404: { description: 'Not found', content: { 'application/json': { schema: ApiErrorResponse } } },
   409: { description: 'Conflict', content: { 'application/json': { schema: ApiErrorResponse } } },
+  429: { description: 'Too many requests', content: { 'application/json': { schema: ApiErrorResponse } } },
 };
 
 const bearerAuth = [{ bearerAuth: [] }];
@@ -223,6 +224,7 @@ export const openApiSpec = {
           },
           400: errorResponses[400],
           409: errorResponses[409],
+          429: errorResponses[429],
         },
       },
     },
@@ -261,6 +263,7 @@ export const openApiSpec = {
           400: errorResponses[400],
           401: errorResponses[401],
           403: errorResponses[403],
+          429: errorResponses[429],
         },
       },
     },

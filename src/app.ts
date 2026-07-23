@@ -11,6 +11,8 @@ import { errorHandler } from './middleware/errorHandler';
 
 export const app = express();
 
+app.set('trust proxy', 1);
+
 app.use(helmet());
 app.use(cors({ origin: env.CLIENT_URL }));
 app.use(morgan(env.NODE_ENV === 'development' ? 'dev' : 'combined'));
